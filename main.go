@@ -11,7 +11,9 @@ func init() {
 func main() {
 	router := routers.Setup()
 
-	router.Run(":8088")
+	router.Run(":8885")
+
+	// routers.SetupOri()
 
 	// s := &http.Server{
 	// 	Addr:           fmt.Sprintf(":%d", app.Config.Server.HttpPort),
