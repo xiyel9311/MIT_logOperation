@@ -19,13 +19,11 @@ func Setup() *gin.Engine {
 		test.GET("", testController.Test)
 	}
 
-	log := r.Group("/log")
-	{
-		logController := &controllers.LogController{}
+	logController := &controllers.LogController{}
 
-		log.PUT("/updateOutput", logController.UpdateOutput)
-		log.GET("/getOutput", logController.GetOutput)
-	}
+	r.PUT("/log_output", logController.UpdateOutput)
+	r.GET("/log_output", logController.GetOutput)
+	r.GET("/log_message", logController.LogMessage)
 
 	return r
 }
