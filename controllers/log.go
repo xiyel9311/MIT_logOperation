@@ -8,7 +8,7 @@ import (
 	"log"
 	"net/http"
 
-	"logOperation/setting"
+	"logOperation/models/sysparam"
 
 	"github.com/gin-gonic/gin"
 )
@@ -32,7 +32,7 @@ type logOutput struct {
 }
 
 func init() {
-	ip = setting.IP()
+	ip = sysparam.IP
 }
 
 func setReqHeader(req *http.Request) {
