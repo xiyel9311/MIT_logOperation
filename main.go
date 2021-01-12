@@ -1,11 +1,30 @@
 package main
 
 import (
+	// "logOperation/models/setting"
 	"logOperation/routers"
+	// "github.com/aWildProgrammer/fconf"
 )
 
-func init() {
+// const (
+// 	settingPath = "./setting.ini"
+// )
 
+// var globalSetting *setting.Setting
+
+// func getSetting() {
+// 	c, err := fconf.NewFileConf(settingPath)
+// 	if err != nil {
+// 		panic(err)
+// 	}
+
+// 	globalSetting = new(setting.Setting)
+// 	globalSetting.ThisPort = c.String("Setting.this_port")
+// 	globalSetting.MainIP = c.String("Setting.main_ip")
+// }
+
+func init() {
+	// getSetting()
 }
 
 func main() {
