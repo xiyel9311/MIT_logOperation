@@ -3,6 +3,7 @@ package controllers
 import (
 	"errors"
 	"fmt"
+	"net/url"
 
 	"github.com/gin-gonic/gin"
 )
@@ -26,6 +27,13 @@ func (tc *TestController) Test(c *gin.Context) {
 			fmt.Println("commit.")
 		}
 	}()
+
+	params := "name=Dean&sex=male&hair_color=black+brown&eye_color="
+	person, err := url.ParseQuery(params)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(person)
 
 	// panic("a")
 	return
