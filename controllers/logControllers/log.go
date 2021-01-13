@@ -1,4 +1,4 @@
-package controllers
+package logControllers
 
 import (
 	"bytes"
@@ -32,7 +32,7 @@ type logOutput struct {
 }
 
 func init() {
-	ip = sysparam.IP
+	ip = sysparam.MainIP
 }
 
 func setReqHeader(req *http.Request) {
@@ -59,14 +59,14 @@ func (lc *LogController) UpdateOutput(c *gin.Context) {
 	}
 }
 
-func (lc *LogController) GetOutput(c *gin.Context) {
+func (lc *LogController) Output(c *gin.Context) {
 
 	req, err := http.NewRequest(http.MethodGet, ip+"/log_output", nil)
 	setReqHeader(req)
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Println("field to connnect to get log output.")
+		fmt.Println("Failed to connnect to get log output.")
 	}
 
 	bodyBytes, err := ioutil.ReadAll(resp.Body)
@@ -85,7 +85,7 @@ func (lc *LogController) LogMessage(c *gin.Context) {
 	client := &http.Client{}
 	resp, err := client.Do(req)
 	if err != nil {
-		fmt.Println("field to connnect to get log message.")
+		fmt.Println("Failed to connnect to get log message.")
 	}
 
 	// defer response.Body.Close()
